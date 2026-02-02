@@ -125,6 +125,16 @@
 
 **Solution**: Created correct activity_main.xml layout with login and register buttons that MainActivity expects, separating it from the navigation-based activity_home.xml used by HomeActivity
 
+### 19. Backend API Configuration
+**Problem**: API client was configured to use localhost/development address `http://10.0.2.2:8080/` instead of cloud server address
+
+**Solution**: Updated ApiClient.java to use cloud server address `http://81.70.234.241:8080/`
+
+### 20. API Interface Corrections
+**Problem**: API service definition used GET methods for login/register operations which should use POST for security
+
+**Solution**: Updated ApiService.java to use POST methods for authentication endpoints and created proper request/response models
+
 ## Dependencies Added
 
 Added to `app/build.gradle`:

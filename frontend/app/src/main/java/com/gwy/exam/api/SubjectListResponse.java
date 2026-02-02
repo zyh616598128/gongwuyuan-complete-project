@@ -7,6 +7,7 @@ public class SubjectListResponse {
     private boolean success;
     private String message;
     private List<Subject> data;
+    private int total;
 
     public boolean isSuccess() {
         return success;
@@ -30,5 +31,13 @@ public class SubjectListResponse {
 
     public void setData(List<Subject> data) {
         this.data = data;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 }

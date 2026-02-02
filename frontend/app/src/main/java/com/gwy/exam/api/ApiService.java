@@ -3,7 +3,9 @@ package com.gwy.exam.api;
 import com.gwy.exam.model.Question;
 import com.gwy.exam.model.Subject;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -39,20 +41,11 @@ public interface ApiService {
     @GET("api/subjects")
     Call<SubjectListResponse> getSubjects();
 
-    // 登录
-    @GET("api/auth/login")
-    Call<LoginResponse> login(
-        @Query("username") String username,
-        @Query("password") String password
-    );
+    // 登录 - 使用POST方法
+    @POST("api/auth/login")
+    Call<LoginResponse> login(@Body LoginRequest loginRequest);
 
-    // 注册
-    @GET("api/auth/register")
-    Call<RegisterResponse> register(
-        @Query("username") String username,
-        @Query("password") String password,
-        @Query("email") String email,
-        @Query("nickname") String nickname,
-        @Query("phone") String phone
-    );
+    // 注册 - 使用POST方法
+    @POST("api/auth/register")
+    Call<RegisterResponse> register(@Body RegisterRequest registerRequest);
 }
