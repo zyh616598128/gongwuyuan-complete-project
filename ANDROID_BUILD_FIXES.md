@@ -135,6 +135,16 @@
 
 **Solution**: Updated ApiService.java to use POST methods for authentication endpoints and created proper request/response models
 
+### 21. Network Security Policy
+**Problem**: Android 9+ blocks cleartext (HTTP) traffic by default, causing "CLEARTEXT communication not permitted" error when connecting to HTTP backend
+
+**Solution**: Added network_security_config.xml to allow cleartext traffic to the cloud server IP
+
+### 22. Local Development Support
+**Problem**: Need to support both cloud and local backend configurations for development
+
+**Solution**: Created deployment scripts to easily switch between cloud and local backend configurations
+
 ## Dependencies Added
 
 Added to `app/build.gradle`:
