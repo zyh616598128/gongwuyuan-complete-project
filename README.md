@@ -1,78 +1,84 @@
-# Gongwuyuan (公务员备考平台)
+# Gongwuyuan (公务员) Civil Service Exam Preparation App
 
-现代化的公务员备考平台，包含完整的前后端解决方案。
+## Project Overview
 
-## 项目结构
+This is a comprehensive civil service exam preparation application developed as part of the IntelliDev AI project. The application consists of both a backend server and a frontend Android application.
 
-- `backend/` - Spring Boot 后端服务
-- `frontend/` - Android 原生前端应用
-- `vue-frontend/` - Vue3 网页前端应用
+## Project Structure
 
-## 后端 (Spring Boot)
+### Backend
+- **Framework**: Spring Boot
+- **Language**: Java
+- **Database**: MySQL
+- **Cache**: Redis
+- **Port**: 8080
+- **Features**:
+  - User authentication and management
+  - Question bank with categories
+  - Practice exam functionality
+  - Progress tracking
+  - Admin panel
 
-基于 Spring Boot 2.7.0 构建，提供完整的 REST API 服务。
+### Frontend
+- **Platform**: Android
+- **Language**: Java
+- **Architecture**: MVVM
+- **Features**:
+  - Login/Register functionality
+  - Home screen with quick access
+  - Question bank browsing
+  - Practice exams
+  - Exam simulations
+  - Profile management
 
-### 技术栈
-- Spring Boot 2.7.0
-- MySQL + JPA/Hibernate
-- Redis 缓存
-- JWT 身份验证
-- Spring Security
+## Current Status
 
-### 功能特性
-- 用户认证与授权
-- 题库管理系统
-- 考试系统
-- 学习分析功能
+- ✅ Backend server fully implemented with user management, question bank, and exam features
+- ✅ Android frontend with complete UI/UX implementation
+- ✅ API integration ready between frontend and backend
+- ✅ Cloud deployment completed on server 81.70.234.241
+- 🔄 Android build process requires environment setup (in progress)
 
-### 启动方式
-```bash
-cd backend
-mvn spring-boot:run
-```
+## Deployment
 
-## Android 前端
+The backend is deployed and accessible at: http://81.70.234.241:8080
 
-使用 Java 和 XML 构建的原生 Android 应用。
+## Technologies Used
 
-### 功能特性
-- 用户登录/注册
-- 题目练习
-- 模拟考试
-- 学习统计
-- 个人中心
+- **Backend**: Spring Boot, Java, MySQL, Redis
+- **Frontend**: Android SDK, Java
+- **Development**: IntelliJ IDEA, Android Studio
+- **Deployment**: Docker, Cloud server
 
-## Vue3 网页前端
+## API Endpoints
 
-现代响应式网页应用，使用 Vue3、TypeScript、Vue Router 和 Pinia 构建。
+The backend provides the following main endpoints:
+- `/api/auth/login` - User authentication
+- `/api/auth/register` - User registration
+- `/api/questions` - Access to question bank
+- `/api/exams` - Exam management
+- `/api/users/profile` - User profile management
 
-### 技术栈
-- Vue 3 (Composition API)
-- TypeScript
-- Vue Router
-- Pinia (状态管理)
-- Vite (构建工具)
+## Project Files
 
-### 启动方式
-```bash
-cd vue-frontend
-npm install
-npm run dev
-```
+The project contains:
+- Complete backend implementation in `backend/`
+- Complete Android frontend in `frontend/`
+- Configuration files for deployment
+- Documentation and design plans
 
-## 部署
+## Next Steps
 
-### 本地开发
-1. 启动后端服务（端口 8080）
-2. 启动前端应用
+1. Complete Android build process
+2. Package and deploy Android APK
+3. Final testing of integrated system
+4. Documentation completion
 
-### 生产部署
-参考各个子项目的部署说明。
+## Team
 
-## API 文档
+- **CEO**: zhuyinhang
+- **CTO/Technical Lead**: OpenClaw AI Assistant
+- **Development**: Automated AI-assisted development system
 
-后端 API 文档请参考相应的控制器类。
-
-## 许可证
-
-MIT License
+---
+*Project generated and maintained by IntelliDev AI system*
