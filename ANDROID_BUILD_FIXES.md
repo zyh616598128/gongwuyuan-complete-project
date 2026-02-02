@@ -89,6 +89,19 @@
 
 **Solution**: Added the proper namespace declaration to the root element
 
+### 14. Incorrect Package Imports
+**Problem**: HomeActivity.java was importing fragments from incorrect packages
+- Expected fragments in `com.gwy.exam.ui.home` and `com.gwy.exam.ui.profile`
+- Actual fragments located in `com.gwy.exam` package
+
+**Solution**: Updated imports to reference correct package locations
+
+### 15. Missing RecyclerView IDs
+**Problem**: Fragment Java code was trying to find RecyclerView with IDs that didn't exist:
+- `recycler_view_practice` in fragment_practice.xml
+
+**Solution**: Added the missing RecyclerView elements with proper IDs to layout files
+
 ## Dependencies Added
 
 Added to `app/build.gradle`:
