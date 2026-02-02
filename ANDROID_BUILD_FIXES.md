@@ -64,6 +64,31 @@
 
 **Solution**: Changed to `android:lineSpacingExtra="4dp"` in fragment_about.xml
 
+### 10. Missing Fragment Classes
+**Problem**: Java compilation errors for missing fragment classes:
+- `PracticeFragment`
+- `ExamFragment` 
+- `WrongQuestionsFragment`
+
+**Solution**: Created the missing Java fragment classes in appropriate packages
+
+### 11. Missing Layout View IDs
+**Problem**: Java code tried to reference view IDs that didn't exist in layouts:
+- `card_practice`, `card_random`, `card_exam`, `card_wrong_book` in fragment_home.xml
+- Various TextView IDs like `tv_username`, `tv_study_days`, etc.
+
+**Solution**: Added the missing IDs to the corresponding layout elements
+
+### 12. Missing Navigation Menu Items
+**Problem**: Navigation references in Java code didn't match menu item IDs
+
+**Solution**: Updated the bottom navigation menu to include all required destination IDs
+
+### 13. Missing Layout XML Namespace
+**Problem**: Missing `xmlns:app` namespace in activity_home.xml causing attribute errors
+
+**Solution**: Added the proper namespace declaration to the root element
+
 ## Dependencies Added
 
 Added to `app/build.gradle`:

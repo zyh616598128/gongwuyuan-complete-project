@@ -6,6 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.gwy.exam.ui.home.HomeFragment;
+import com.gwy.exam.ui.practice.PracticeFragment;
+import com.gwy.exam.ui.exam.ExamFragment;
+import com.gwy.exam.ui.question.WrongQuestionsFragment;
+import com.gwy.exam.ui.profile.ProfileFragment;
 
 public class HomeActivity extends AppCompatActivity {
 

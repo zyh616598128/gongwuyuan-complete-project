@@ -42,6 +42,7 @@
                     android:layout_marginStart="16dp">
 
                     <TextView
+                        android:id="@+id/tv_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="您好，考生"
@@ -50,6 +51,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_study_days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="坚持学习，公考必胜！"
@@ -105,6 +107,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_total_questions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
@@ -113,6 +116,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tv_answered_questions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="今日答题(题)"
@@ -129,6 +133,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_accuracy_rate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="85%"
@@ -196,6 +201,7 @@
 
             <!-- 顺序练习 -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_practice"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
@@ -229,6 +235,7 @@
 
             <!-- 随机练习 -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_random"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
@@ -262,6 +269,7 @@
 
             <!-- 模拟考试 -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_exam"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
@@ -295,6 +303,7 @@
 
             <!-- 错题本 -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_wrong_book"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
