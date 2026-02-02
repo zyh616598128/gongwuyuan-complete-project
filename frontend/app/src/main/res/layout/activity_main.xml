@@ -1,42 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
-    <!-- 主要内容区域 -->
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="56dp"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/mobile_navigation" />
+    <!-- Logo -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="App logo" />
 
-    <!-- 顶部工具栏 -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="top"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
-        app:title="公考通"
-        app:titleTextColor="@android:color/white" />
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="公考通"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="8dp" />
 
-    <!-- 底部导航栏 -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="公务员考试备考平台"
+        android:textSize="16sp"
+        android:textColor="@color/text_secondary"
+        android:layout_marginBottom="48dp" />
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@android:color/white"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/bottom_nav_color"
-        app:itemTextColor="@color/bottom_nav_color" />
+        android:text="登录"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.Material3.Button" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!-- Register Button -->
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:textSize="16sp"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+
+</LinearLayout>

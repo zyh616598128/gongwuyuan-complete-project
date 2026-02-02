@@ -120,6 +120,11 @@
 
 **Solution**: Created the missing fragment classes in their expected packages
 
+### 18. Layout-Code Mismatch in MainActivity
+**Problem**: MainActivity.java expected to find buttons with IDs `btn_login` and `btn_register` in activity_main.xml, but the layout contained navigation components instead of login/register buttons, causing NullPointerException when calling setOnClickListener on null objects.
+
+**Solution**: Created correct activity_main.xml layout with login and register buttons that MainActivity expects, separating it from the navigation-based activity_home.xml used by HomeActivity
+
 ## Dependencies Added
 
 Added to `app/build.gradle`:
