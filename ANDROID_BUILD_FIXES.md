@@ -102,6 +102,24 @@
 
 **Solution**: Added the missing RecyclerView elements with proper IDs to layout files
 
+### 16. Package Name Mismatch in Navigation Graph
+**Problem**: Navigation graph referenced fragments in incorrect packages:
+- `com.gwy.exam.ui.home.HomeFragment` (doesn't exist)
+- `com.gwy.exam.ui.questionbank.QuestionBankFragment` (doesn't exist)
+- `com.gwy.exam.ui.profile.ProfileFragment` (doesn't exist)
+
+**Solution**: Updated navigation graph to reference fragments in their actual packages:
+- `com.gwy.exam.HomeFragment`
+- `com.gwy.exam.QuestionBankFragment`
+- `com.gwy.exam.ProfileFragment`
+
+### 17. Missing Fragment Classes for Navigation
+**Problem**: Navigation graph referenced fragments that didn't exist:
+- `com.gwy.exam.ui.help.HelpFeedbackFragment`
+- `com.gwy.exam.ui.about.AboutFragment`
+
+**Solution**: Created the missing fragment classes in their expected packages
+
 ## Dependencies Added
 
 Added to `app/build.gradle`:

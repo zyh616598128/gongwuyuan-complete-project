@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.gwy.exam.ui.home.HomeFragment"
+        android:name="com.gwy.exam.HomeFragment"
         android:label="首页"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_question_bank"
-        android:name="com.gwy.exam.ui.questionbank.QuestionBankFragment"
+        android:name="com.gwy.exam.QuestionBankFragment"
         android:label="题库"
         tools:layout="@layout/fragment_question_bank" />
 
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.gwy.exam.ui.profile.ProfileFragment"
+        android:name="com.gwy.exam.ProfileFragment"
         android:label="个人资料"
         tools:layout="@layout/fragment_profile" />
 
