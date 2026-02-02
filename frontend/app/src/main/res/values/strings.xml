@@ -7,4 +7,50 @@
     <string name="nav_header_subtitle">gongwuyuan@example.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <!-- Login activity strings -->
+    <string name="login">登录</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="email">邮箱</string>
+    <string name="nickname">昵称</string>
+    <string name="phone">电话</string>
+    <string name="confirm_password">确认密码</string>
+    <!-- Register activity strings -->
+    <string name="register">注册</string>
+    <!-- Common strings -->
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="search">搜索</string>
+    <string name="home">首页</string>
+    <string name="question_bank">题库</string>
+    <string name="practice">练习</string>
+    <string name="exam">考试</string>
+    <string name="profile">个人资料</string>
+    <string name="logout">退出登录</string>
+    <string name="welcome">欢迎使用公考通</string>
+    <string name="forgot_password">忘记密码?</string>
+    <!-- Exam related strings -->
+    <string name="start_exam">开始考试</string>
+    <string name="exam_simulation">模拟考试</string>
+    <string name="review_answers">查看答案</string>
+    <string name="submit_exam">提交试卷</string>
+    <string name="time_remaining">剩余时间</string>
+    <string name="questions_count">%d 题</string>
+    <!-- Error messages -->
+    <string name="error_username_required">请输入用户名</string>
+    <string name="error_email_required">请输入邮箱</string>
+    <string name="error_password_required">请输入密码</string>
+    <string name="error_password_mismatch">密码不匹配</string>
+    <string name="error_network">网络连接错误</string>
+    <string name="error_unknown">未知错误</string>
+    <!-- Success messages -->
+    <string name="success_registration">注册成功</string>
+    <string name="success_login">登录成功</string>
+    <!-- Navigation strings -->
+    <string name="help_feedback">帮助与反馈</string>
+    <string name="about">关于我们</string>
+    <string name="settings">设置</string>
 </resources>

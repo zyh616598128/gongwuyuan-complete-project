@@ -4,11 +4,16 @@
     android:viewportWidth="24"
     android:viewportHeight="24"
     android:tint="?attr/colorOnSurface">
-  <path
-      android:fillColor="@android:color/white"
-      android:pathData="M13,3c-4.97,0 -9,4.03 -9,9L1,12l3.89,3.89 0.07,0.14L9,12L6,12c0,-3.87 3.13,-7 7,-7s7,3.13 7,7 -3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9zM15.5,11l-0.5,0.5L15,12l-1,0l0,-1l1,0z"/>
-  <path
-      android:fillColor="@android:color/white"
-      android:pathData="M8.5,11l-0.5,0.5L8,12l1,0l0,-1l-1,0z"
-      android:transform="rotate(45.0145 8 11.5)"/>
+  <group
+      android:name="rotationGroup"
+      android:pivotX="8"
+      android:pivotY="11.5"
+      android:rotation="45.0145">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M13,3c-4.97,0 -9,4.03 -9,9L1,12l3.89,3.89 0.07,0.14L9,12L6,12c0,-3.87 3.13,-7 7,-7s7,3.13 7,7 -3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9zM15.5,11l-0.5,0.5L15,12l-1,0l0,-1l1,0z"/>
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M8.5,11l-0.5,0.5L8,12l1,0l0,-1l-1,0z"/>
+  </group>
 </vector>

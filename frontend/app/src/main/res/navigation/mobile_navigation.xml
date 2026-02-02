@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.gwy.exam.ui.home.HomeFragment"
+        android:label="首页"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_question_bank"
+        android:name="com.gwy.exam.ui.questionbank.QuestionBankFragment"
+        android:label="题库"
+        tools:layout="@layout/fragment_question_bank" />
+
+    <fragment
+        android:id="@+id/nav_practice"
+        android:name="com.gwy.exam.ui.practice.PracticeFragment"
+        android:label="练习"
+        tools:layout="@layout/fragment_practice" />
+
+    <fragment
+        android:id="@+id/nav_exam"
+        android:name="com.gwy.exam.ui.exam.ExamFragment"
+        android:label="考试"
+        tools:layout="@layout/fragment_exam" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.gwy.exam.ui.profile.ProfileFragment"
+        android:label="个人资料"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_help_feedback"
+        android:name="com.gwy.exam.ui.help.HelpFeedbackFragment"
+        android:label="帮助与反馈"
+        tools:layout="@layout/fragment_help_feedback" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.gwy.exam.ui.about.AboutFragment"
+        android:label="关于我们"
+        tools:layout="@layout/fragment_about" />
+
+</navigation>
