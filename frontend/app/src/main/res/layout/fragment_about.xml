@@ -51,7 +51,7 @@
             android:text="公考通是专为准备公务员考试的考生设计的学习辅助应用。我们致力于提供高质量的题库、精准的解析和智能化的学习建议，帮助考生高效备考。"
             android:textSize="16sp"
             android:layout_marginBottom="24dp"
-            android:lineSpacing="1.2" />
+            android:lineSpacingExtra="4dp" />
 
         <TextView
             android:layout_width="match_parent"
