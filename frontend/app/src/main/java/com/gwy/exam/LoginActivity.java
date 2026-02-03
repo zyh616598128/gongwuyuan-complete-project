@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.gwy.exam.api.ApiClient;
 import com.gwy.exam.api.ApiService;
+import com.gwy.exam.api.LoginRequest;
 import com.gwy.exam.api.LoginResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        Call<LoginResponse> call = apiService.login(username, password);
+        Call<LoginResponse> call = apiService.login(new LoginRequest(username, password));
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.gwy.exam.api.ApiClient;
 import com.gwy.exam.api.ApiService;
+import com.gwy.exam.api.RegisterRequest;
 import com.gwy.exam.api.RegisterResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -79,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        Call<RegisterResponse> call = apiService.register(username, password, email, nickname, phone);
+        Call<RegisterResponse> call = apiService.register(new RegisterRequest(username, password, email, nickname, phone));
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
