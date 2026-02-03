@@ -22,12 +22,41 @@ public class QuestionParsingService {
      * 从PDF文件解析题目
      */
     public List<Question> parsePdfQuestions(MultipartFile file, Long subjectId) throws Exception {
-        PDDocument document = PDDocument.load(file.getBytes());
-        PDFTextStripper stripper = new PDFTextStripper();
-        String text = stripper.getText(document);
-        document.close();
+        if (file == null || file.isEmpty()) {
+            throw new IllegalArgumentException("上传的文件不能为空");
+        }
         
-        return parseTextQuestions(text, subjectId);
+        PDDocument document = null;
+        try {
+            document = PDDocument.load(file.getBytes());
+            PDFTextStripper stripper = new PDFTextStripper();
+            String text = stripper.getText(document);
+            
+            // 清理文本内容，移除多余空格和特殊字符
+            text = cleanTextContent(text);
+            
+            return parseTextQuestions(text, subjectId);
+        } finally {
+            if (document != null) {
+                document.close();
+            }
+        }
+    }
+    
+    /**
+     * 清理文本内容
+     */
+    private String cleanTextContent(String text) {
+        if (text == null) {
+            return "";
+        }
+        
+        // 替换多余的空白字符
+        text = text.replaceAll("[\\r\\n\\t]+", " ");
+        // 替换多个连续空格为单个空格
+        text = text.replaceAll("\\s+", " ");
+        // 修剪首尾空格
+        return text.trim();
     }
 
     /**
@@ -36,47 +65,90 @@ public class QuestionParsingService {
     public List<Question> parseTextQuestions(String text, Long subjectId) {
         List<Question> questions = new ArrayList<>();
         
-        // 移除多余的空白字符
-        text = text.replaceAll("\\s+", " ");
+        if (text == null || text.isEmpty()) {
+            return questions;
+        }
         
-        // 匹配题目模式：数字+. 题目内容 A.选项 B.选项 C.选项 D.选项
+        // 使用更灵活的模式匹配，支持多种题号格式
         Pattern questionPattern = Pattern.compile(
-            "(\\d+[\\.、])\\s*(.*?)((?:[A-Z][\\.、][^A-Z]+)+)([A-Z])?\\s*(?:答案|解析|【答案】|【解析】)?\\s*([A-Z])?",
+            "(\\d+)[\\.．、](\\s*)(.+?)(?=(?:[Aa][\\.．、]|\\bA\\b|\\bA\\.[ \\t])|(?=\\n\\s*\\d+[\\.．、])|(?=\\d+[\\.．、]\\s)|$)",
             Pattern.DOTALL
         );
         
         Matcher matcher = questionPattern.matcher(text);
         
         while (matcher.find()) {
-            String fullMatch = matcher.group(0);
-            String questionNum = matcher.group(1);
-            String questionContent = matcher.group(2).trim();
-            String optionsText = matcher.group(3).trim();
-            String extractedAnswer = matcher.group(4); // 可能是从选项中推断的答案
-            String explicitAnswer = matcher.group(5); // 明确标注的答案
-            
-            // 解析选项
-            Map<String, String> optionsMap = parseOptions(optionsText);
-            
-            // 创建题目对象
-            Question question = new Question();
-            question.setContent(questionContent);
-            question.setType(com.gwy.model.Question.QuestionType.SINGLE_CHOICE);
-            question.setSubject(null); // 需要通过subjectId获取
-            question.setOptions(new ArrayList<>(optionsMap.values()));
-            
-            // 确定答案（优先使用明确标注的答案）
-            String finalAnswer = explicitAnswer != null ? explicitAnswer : extractedAnswer;
-            if (finalAnswer != null) {
-                List<String> answers = new ArrayList<>();
-                answers.add(finalAnswer);
-                question.setAnswers(answers);
+            try {
+                String questionNum = matcher.group(1);
+                String questionContent = matcher.group(3).trim();
+                
+                // 在当前匹配的范围内寻找选项
+                int start = matcher.end();
+                int end = text.length();
+                
+                // 寻找下一个题号的位置
+                Pattern nextQuestionPattern = Pattern.compile("\\d+[\\.．、]");
+                Matcher nextMatcher = nextQuestionPattern.matcher(text.substring(start));
+                if (nextMatcher.find()) {
+                    end = start + nextMatcher.start();
+                }
+                
+                String contextAfter = text.substring(start, end);
+                
+                // 提取选项
+                Map<String, String> optionsMap = parseOptions(contextAfter);
+                
+                // 提取答案（在题目内容和选项后搜索）
+                String answer = extractAnswer(text, matcher.end(), end);
+                
+                // 创建题目对象
+                if (!questionContent.isEmpty() && !optionsMap.isEmpty()) {
+                    Question question = new Question();
+                    question.setContent(questionContent);
+                    question.setType(com.gwy.model.Question.QuestionType.SINGLE_CHOICE);
+                    question.setSubject(null); // 需要通过subjectId获取
+                    question.setOptions(new ArrayList<>(optionsMap.values()));
+                    
+                    if (answer != null && !answer.isEmpty()) {
+                        List<String> answers = new ArrayList<>();
+                        answers.add(answer.toUpperCase());
+                        question.setAnswers(answers);
+                    }
+                    
+                    questions.add(question);
+                }
+            } catch (Exception e) {
+                // 跳过有问题的题目，继续处理下一个
+                continue;
             }
-            
-            questions.add(question);
         }
         
         return questions;
+    }
+    
+    /**
+     * 从文本中提取答案
+     */
+    private String extractAnswer(String text, int startPos, int endPos) {
+        String context = text.substring(startPos, Math.min(endPos, text.length()));
+        
+        // 多种答案格式的匹配模式
+        Pattern[] answerPatterns = {
+            Pattern.compile("【?答案[：:]\\s*([A-Da-d])", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("答[：:]\\s*([A-Da-d])", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("(?i)answer[：:]\\s*([A-Da-d])"),
+            Pattern.compile("([A-Da-d])[\\.．、]\\s*是[正确对]", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("正确答案[：:]\\s*([A-Da-d])", Pattern.CASE_INSENSITIVE)
+        };
+        
+        for (Pattern pattern : answerPatterns) {
+            Matcher matcher = pattern.matcher(context);
+            if (matcher.find()) {
+                return matcher.group(1).toUpperCase();
+            }
+        }
+        
+        return null;
     }
 
     /**
@@ -85,14 +157,30 @@ public class QuestionParsingService {
     private Map<String, String> parseOptions(String optionsText) {
         Map<String, String> options = new LinkedHashMap<>();
         
-        // 匹配 A.选项内容 B.选项内容 C.选项内容 D.选项内容
-        Pattern optionPattern = Pattern.compile("([A-Z])[\\.、]([^A-Z]+?)(?=[A-Z][\\.、]|$)");
+        if (optionsText == null || optionsText.isEmpty()) {
+            return options;
+        }
+        
+        // 更灵活的选项匹配模式，支持多种格式
+        Pattern optionPattern = Pattern.compile(
+            "([A-Da-d])[\\.．、:\\uff1a]([^A-Da-d]+?)(?=(?:[A-Da-d][\\.．、:\\uff1a]|\\n|$))",
+            Pattern.CASE_INSENSITIVE | Pattern.DOTALL
+        );
+        
         Matcher matcher = optionPattern.matcher(optionsText);
         
         while (matcher.find()) {
-            String optionLetter = matcher.group(1);
+            String optionLetter = matcher.group(1).toUpperCase();
             String optionText = matcher.group(2).trim();
-            options.put(optionLetter, optionText);
+            
+            // 进一步清理选项文本
+            if (optionText.endsWith("。") || optionText.endsWith(".") || optionText.endsWith("；")) {
+                optionText = optionText.substring(0, optionText.length() - 1);
+            }
+            
+            if (!optionText.isEmpty()) {
+                options.put(optionLetter, optionText);
+            }
         }
         
         return options;
