@@ -27,7 +27,7 @@ spring:
         min-idle: 0
 
 jwt:
-  secret: gwy-exam-secret-key
+  secret: +KC+lpW2GAKcXXRGRUpRxNDivYegeCF7Qf/hJy6zcO/ogmtYSSSsynsPRAs86F606jHWJwCi8mkJkV/hZ2/kZg==
   expiration: 86400000 # 24小时
 
 file:

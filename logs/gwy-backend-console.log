@@ -1,0 +1,108 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.0)
+
+2026-02-03 14:45:54.182  INFO 256223 --- [           main] com.gwy.GwyApplication                   : Starting GwyApplication v1.0.0 using Java 17.0.17 on zhuyinhang-xpro with PID 256223 (/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/target/gwy-backend-1.0.0.jar started by zhuyinhang in /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend)
+2026-02-03 14:45:54.186  INFO 256223 --- [           main] com.gwy.GwyApplication                   : The following 1 profile is active: "local"
+2026-02-03 14:45:55.113  INFO 256223 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2026-02-03 14:45:55.115  INFO 256223 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-03 14:45:55.308  INFO 256223 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 183 ms. Found 7 JPA repository interfaces.
+2026-02-03 14:45:55.328  INFO 256223 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2026-02-03 14:45:55.330  INFO 256223 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-03 14:45:55.347  INFO 256223 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.WrongQuestionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 14:45:55.348  INFO 256223 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 14:45:55.349  INFO 256223 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.SubjectRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 14:45:55.349  INFO 256223 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.ExamRecordRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 14:45:55.350  INFO 256223 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.QuestionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 14:45:55.351  INFO 256223 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.CategoryRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 14:45:55.352  INFO 256223 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.ExamPaperRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 14:45:55.352  INFO 256223 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2026-02-03 14:45:56.057  INFO 256223 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2026-02-03 14:45:56.078  INFO 256223 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-03 14:45:56.078  INFO 256223 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2026-02-03 14:45:56.155  INFO 256223 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-03 14:45:56.156  INFO 256223 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1911 ms
+2026-02-03 14:45:56.198  INFO 256223 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-03 14:45:56.489  INFO 256223 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-03 14:45:56.501  INFO 256223 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-02-03 14:45:56.653  INFO 256223 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-03 14:45:56.722  INFO 256223 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2026-02-03 14:45:56.936  INFO 256223 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-02-03 14:45:57.071  INFO 256223 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: drop table if exists categories CASCADE 
+Hibernate: drop table if exists exam_answer_details CASCADE 
+Hibernate: drop table if exists exam_answers CASCADE 
+Hibernate: drop table if exists exam_paper_questions CASCADE 
+Hibernate: drop table if exists exam_papers CASCADE 
+Hibernate: drop table if exists exam_records CASCADE 
+Hibernate: drop table if exists question_answers CASCADE 
+Hibernate: drop table if exists question_options CASCADE 
+Hibernate: drop table if exists questions CASCADE 
+Hibernate: drop table if exists subjects CASCADE 
+Hibernate: drop table if exists users CASCADE 
+Hibernate: drop table if exists wrong_questions CASCADE 
+Hibernate: create table categories (id bigint generated by default as identity, create_time timestamp, description varchar(1000), is_active boolean, name varchar(255) not null, sort_order integer, update_time timestamp, parent_id bigint, subject_id bigint, primary key (id))
+Hibernate: create table exam_answer_details (exam_record_id bigint not null, is_correct boolean)
+Hibernate: create table exam_answers (exam_record_id bigint not null, answer varchar(255))
+Hibernate: create table exam_paper_questions (exam_paper_id bigint not null, question_id bigint not null)
+Hibernate: create table exam_papers (id bigint generated by default as identity, create_time timestamp, description varchar(1000), is_active boolean, title varchar(255) not null, total_questions integer, total_score integer, total_time integer, update_time timestamp, subject_id bigint, primary key (id))
+Hibernate: create table exam_records (id bigint generated by default as identity, create_time timestamp, duration bigint, end_time timestamp, obtained_score integer, start_time timestamp, total_score integer, update_time timestamp, exam_paper_id bigint not null, user_id bigint not null, primary key (id))
+Hibernate: create table question_answers (question_id bigint not null, answer varchar(255))
+Hibernate: create table question_options (question_id bigint not null, option_text varchar(255))
+Hibernate: create table questions (id bigint generated by default as identity, analysis varchar(1000), content varchar(5000) not null, create_time timestamp, difficulty varchar(255), is_active boolean, type varchar(255), update_time timestamp, category_id bigint, subject_id bigint, primary key (id))
+Hibernate: create table subjects (id bigint generated by default as identity, create_time timestamp, description varchar(1000), is_active boolean, name varchar(255) not null, sort_order integer, update_time timestamp, primary key (id))
+Hibernate: create table users (id bigint generated by default as identity, age integer, create_time timestamp, email varchar(255) not null, gender varchar(255), is_active boolean, nickname varchar(255), password varchar(255) not null, phone varchar(255), update_time timestamp, username varchar(255) not null, primary key (id))
+Hibernate: create table wrong_questions (id bigint generated by default as identity, create_time timestamp, error_count integer, first_error_time timestamp, last_error_time timestamp, note varchar(1000), update_time timestamp, user_answer varchar(1000), question_id bigint not null, user_id bigint not null, primary key (id))
+Hibernate: alter table subjects add constraint UK_aodt3utnw0lsov4k9ta88dbpr unique (name)
+Hibernate: alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username)
+Hibernate: alter table categories add constraint FKsaok720gsu4u2wrgbk10b5n8d foreign key (parent_id) references categories
+Hibernate: alter table categories add constraint FKdxalrhrhlg50alq8bx5yjoo3s foreign key (subject_id) references subjects
+Hibernate: alter table exam_answer_details add constraint FKsmk1xd47h3y2q69fmln3cbgni foreign key (exam_record_id) references exam_records
+Hibernate: alter table exam_answers add constraint FK1q4i0xl39i4lmhn6xlm2682nm foreign key (exam_record_id) references exam_records
+Hibernate: alter table exam_paper_questions add constraint FKe1d9feusmppmr6y1vti4ir6td foreign key (question_id) references questions
+Hibernate: alter table exam_paper_questions add constraint FK8qa6rr9bcwjgr1pn5hs8jt7gn foreign key (exam_paper_id) references exam_papers
+Hibernate: alter table exam_papers add constraint FKn0g7a3gs9oepoylr2hgg1mtr1 foreign key (subject_id) references subjects
+Hibernate: alter table exam_records add constraint FK5gy7ehwpji3r0iyf8lukr0uvu foreign key (exam_paper_id) references exam_papers
+Hibernate: alter table exam_records add constraint FKr0jqfjahbk9ydo5egv3vxpr9l foreign key (user_id) references users
+Hibernate: alter table question_answers add constraint FKrms3u35c10orgjqyw03ajd7x7 foreign key (question_id) references questions
+Hibernate: alter table question_options add constraint FKsb9v00wdrgc9qojtjkv7e1gkp foreign key (question_id) references questions
+Hibernate: alter table questions add constraint FKctl6tuf74n8cufkb3ulj6b3fc foreign key (category_id) references categories
+Hibernate: alter table questions add constraint FKo0h0rn8bxifrxmq1d8ipiyqv5 foreign key (subject_id) references subjects
+Hibernate: alter table wrong_questions add constraint FKlarprxagqdwbjdp1fci09wo1d foreign key (question_id) references questions
+Hibernate: alter table wrong_questions add constraint FKdrbve4ccm1m7edwxpnogs2fta foreign key (user_id) references users
+2026-02-03 14:45:58.023  INFO 256223 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-02-03 14:45:58.031  INFO 256223 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-03 14:45:58.507  WARN 256223 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-03 14:45:58.893  INFO 256223 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@643d2dae, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52d6d273, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f2e1024, org.springframework.security.web.header.HeaderWriterFilter@554c4eaa, org.springframework.security.web.authentication.logout.LogoutFilter@788ba63e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c50ad4b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@521bb1a4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4667c4c1, org.springframework.security.web.session.SessionManagementFilter@1455154c, org.springframework.security.web.access.ExceptionTranslationFilter@6ed922e1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@462e1e64]
+2026-02-03 14:45:59.923  INFO 256223 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2026-02-03 14:45:59.936  INFO 256223 --- [           main] com.gwy.GwyApplication                   : Started GwyApplication in 6.329 seconds (JVM running for 6.77)
+Hibernate: select subject0_.id as id1_9_, subject0_.create_time as create_t2_9_, subject0_.description as descript3_9_, subject0_.is_active as is_activ4_9_, subject0_.name as name5_9_, subject0_.sort_order as sort_ord6_9_, subject0_.update_time as update_t7_9_ from subjects subject0_ where subject0_.name=?
+Hibernate: insert into subjects (id, create_time, description, is_active, name, sort_order, update_time) values (default, ?, ?, ?, ?, ?, ?)
+Hibernate: select subject0_.id as id1_9_, subject0_.create_time as create_t2_9_, subject0_.description as descript3_9_, subject0_.is_active as is_activ4_9_, subject0_.name as name5_9_, subject0_.sort_order as sort_ord6_9_, subject0_.update_time as update_t7_9_ from subjects subject0_ where subject0_.name=?
+Hibernate: insert into subjects (id, create_time, description, is_active, name, sort_order, update_time) values (default, ?, ?, ?, ?, ?, ?)
+Hibernate: select subject0_.id as id1_9_, subject0_.create_time as create_t2_9_, subject0_.description as descript3_9_, subject0_.is_active as is_activ4_9_, subject0_.name as name5_9_, subject0_.sort_order as sort_ord6_9_, subject0_.update_time as update_t7_9_ from subjects subject0_ where subject0_.name=?
+Hibernate: insert into subjects (id, create_time, description, is_active, name, sort_order, update_time) values (default, ?, ?, ?, ?, ?, ?)
+Hibernate: select subject0_.id as id1_9_, subject0_.create_time as create_t2_9_, subject0_.description as descript3_9_, subject0_.is_active as is_activ4_9_, subject0_.name as name5_9_, subject0_.sort_order as sort_ord6_9_, subject0_.update_time as update_t7_9_ from subjects subject0_ where subject0_.name=?
+Hibernate: insert into subjects (id, create_time, description, is_active, name, sort_order, update_time) values (default, ?, ?, ?, ?, ?, ?)
+2026-02-03 14:46:11.423  INFO 256223 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-03 14:46:11.424  INFO 256223 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-03 14:46:11.427  INFO 256223 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+Hibernate: select user0_.id as col_0_0_ from users user0_ where user0_.username=? limit ?
+Hibernate: select user0_.id as col_0_0_ from users user0_ where user0_.email=? limit ?
+Hibernate: insert into users (id, age, create_time, email, gender, is_active, nickname, password, phone, update_time, username) values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select user0_.id as col_0_0_ from users user0_ where user0_.username=? limit ?
+Hibernate: select user0_.id as col_0_0_ from users user0_ where user0_.email=? limit ?
+Hibernate: insert into users (id, age, create_time, email, gender, is_active, nickname, password, phone, update_time, username) values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select user0_.id as id1_10_, user0_.age as age2_10_, user0_.create_time as create_t3_10_, user0_.email as email4_10_, user0_.gender as gender5_10_, user0_.is_active as is_activ6_10_, user0_.nickname as nickname7_10_, user0_.password as password8_10_, user0_.phone as phone9_10_, user0_.update_time as update_10_10_, user0_.username as usernam11_10_ from users user0_ where user0_.username=?
+Hibernate: select user0_.id as id1_10_, user0_.age as age2_10_, user0_.create_time as create_t3_10_, user0_.email as email4_10_, user0_.gender as gender5_10_, user0_.is_active as is_activ6_10_, user0_.nickname as nickname7_10_, user0_.password as password8_10_, user0_.phone as phone9_10_, user0_.update_time as update_10_10_, user0_.username as usernam11_10_ from users user0_ where user0_.username=?
+Hibernate: select user0_.id as col_0_0_ from users user0_ where user0_.username=? limit ?
+Hibernate: select user0_.id as col_0_0_ from users user0_ where user0_.email=? limit ?
+Hibernate: insert into users (id, age, create_time, email, gender, is_active, nickname, password, phone, update_time, username) values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select user0_.id as id1_10_, user0_.age as age2_10_, user0_.create_time as create_t3_10_, user0_.email as email4_10_, user0_.gender as gender5_10_, user0_.is_active as is_activ6_10_, user0_.nickname as nickname7_10_, user0_.password as password8_10_, user0_.phone as phone9_10_, user0_.update_time as update_10_10_, user0_.username as usernam11_10_ from users user0_ where user0_.username=?
+Hibernate: select user0_.id as id1_10_, user0_.age as age2_10_, user0_.create_time as create_t3_10_, user0_.email as email4_10_, user0_.gender as gender5_10_, user0_.is_active as is_activ6_10_, user0_.nickname as nickname7_10_, user0_.password as password8_10_, user0_.phone as phone9_10_, user0_.update_time as update_10_10_, user0_.username as usernam11_10_ from users user0_ where user0_.username=?

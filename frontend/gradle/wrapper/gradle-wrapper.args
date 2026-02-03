@@ -14,3 +14,9 @@ org.gradle.wrapper.GradleWrapperMain
 assembleDebug
 --console
 plain
+"-Xmx64m"
+"-Xms64m"
+-classpath
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/frontend/gradle/wrapper/gradle-wrapper.jar
+org.gradle.wrapper.GradleWrapperMain
+:app:assembleDebug

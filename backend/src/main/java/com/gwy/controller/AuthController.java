@@ -12,6 +12,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -30,23 +31,32 @@ public class AuthController {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<String>> login(@Valid @RequestBody LoginRequest loginRequest) {
         try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            loginRequest.getUsername(),
-                            loginRequest.getPassword()
-                    )
-            );
-
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            // Directly verify the user credentials against the database
+            User user = userService.findByUsername(loginRequest.getUsername()).orElse(null);
             
+            if (user == null) {
+                return ResponseEntity.ok(ApiResponse.error("用户名或密码错误"));
+            }
+            
+            if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
+                return ResponseEntity.ok(ApiResponse.error("用户名或密码错误"));
+            }
+
+            // Generate JWT token manually
             String jwt = jwtUtil.generateToken(loginRequest.getUsername());
 
             return ResponseEntity.ok(ApiResponse.success("登录成功", jwt));
         } catch (Exception e) {
-            return ResponseEntity.ok(ApiResponse.error("用户名或密码错误"));
+            // Log the exception for debugging (in a real app, use proper logging)
+            System.out.println("Login error: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.ok(ApiResponse.error("登录时发生错误"));
         }
     }
 
