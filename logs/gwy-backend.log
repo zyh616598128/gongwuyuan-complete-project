@@ -1561,3 +1561,63 @@ org.springframework.security.core.userdetails.UsernameNotFoundException: User no
 2026-02-03 20:15:57.084 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
 2026-02-03 20:15:57.109 [http-nio-8081-exec-1] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
 2026-02-03 20:15:57.612 [http-nio-8081-exec-3] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
+2026-02-03 20:17:39.381 [http-nio-8081-exec-4] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
+2026-02-03 20:17:41.981 [http-nio-8081-exec-5] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
+2026-02-03 20:17:54.695 [http-nio-8081-exec-7] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
+2026-02-03 20:17:59.493 [http-nio-8081-exec-8] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
+2026-02-03 20:56:27.229 [main] INFO  com.gwy.GwyApplication - Starting GwyApplication v1.0.0 using Java 17.0.17 on zhuyinhang-xpro with PID 308379 (/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/target/gwy-backend-1.0.0.jar started by zhuyinhang in /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend)
+2026-02-03 20:56:27.233 [main] INFO  com.gwy.GwyApplication - The following 1 profile is active: "local"
+2026-02-03 20:56:28.363 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2026-02-03 20:56:28.366 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-03 20:56:28.604 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 225 ms. Found 7 JPA repository interfaces.
+2026-02-03 20:56:28.629 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2026-02-03 20:56:28.631 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-03 20:56:28.651 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.WrongQuestionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 20:56:28.652 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 20:56:28.653 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.SubjectRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 20:56:28.653 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.ExamRecordRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 20:56:28.654 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.QuestionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 20:56:28.654 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.CategoryRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 20:56:28.654 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gwy.repository.ExamPaperRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2026-02-03 20:56:28.654 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2026-02-03 20:56:29.705 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2026-02-03 20:56:29.726 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-03 20:56:29.727 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2026-02-03 20:56:29.823 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-03 20:56:29.824 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2480 ms
+2026-02-03 20:56:29.884 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-03 20:56:30.284 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-03 20:56:30.301 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-02-03 20:56:30.397 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-03 20:56:30.498 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-03 20:56:30.584 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.9.Final
+2026-02-03 20:56:30.815 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-02-03 20:56:30.989 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2026-02-03 20:56:32.021 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-02-03 20:56:32.029 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-03 20:56:33.306 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1668919e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63300c4b, org.springframework.security.web.context.SecurityContextPersistenceFilter@542f6803, org.springframework.security.web.header.HeaderWriterFilter@4fe533ff, org.springframework.web.filter.CorsFilter@22c53d82, org.springframework.security.web.authentication.logout.LogoutFilter@2489e84a, com.gwy.security.JwtAuthenticationFilter@57562473, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5807efad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@316acbb5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a6045c6, org.springframework.security.web.session.SessionManagementFilter@5d5b9ecb, org.springframework.security.web.access.ExceptionTranslationFilter@57c00115, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3238e2aa]
+2026-02-03 20:56:35.471 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8081 is already in use
+2026-02-03 20:56:35.487 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-03 20:56:35.487 [main] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2026-02-03 20:56:35.500 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-03 20:56:35.504 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-03 20:56:35.506 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-02-03 20:56:35.519 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2026-02-03 20:56:35.535 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2026-02-03 20:56:46.006 [http-nio-8081-exec-9] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
+2026-02-03 20:56:50.352 [http-nio-8081-exec-1] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String

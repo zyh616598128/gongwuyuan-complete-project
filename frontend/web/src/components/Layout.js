@@ -50,6 +50,7 @@ function Layout({ children }) {
     { text: '错题本', icon: <ChecklistIcon />, path: '/wrong-questions' },
     { text: '个人中心', icon: <AccountCircleIcon />, path: '/profile' },
     { text: '题库导入', icon: <QuizIcon />, path: '/admin/import' },
+    { text: '智能导入', icon: <AssessmentIcon />, path: '/smart-import' },
   ];
 
   const drawer = (

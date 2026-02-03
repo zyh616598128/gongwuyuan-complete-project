@@ -68,7 +68,7 @@ public class QuestionController {
     @GetMapping("/parent/{parentId}/children")
     public ResponseEntity<ApiResponse<Object>> getChildrenByParentId(
             @PathVariable Long parentId) {
-        List<Question> childQuestions = questionService.getChildrenByParentId(parentId);
+        java.util.List<Question> childQuestions = questionService.getChildrenByParentId(parentId);
         return ResponseEntity.ok(ApiResponse.success("获取子题成功", childQuestions));
     }
 }

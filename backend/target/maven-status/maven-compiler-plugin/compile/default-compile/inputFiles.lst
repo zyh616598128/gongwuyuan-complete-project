@@ -3,11 +3,14 @@
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/service/UserDetailsServiceImpl.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/service/WrongQuestionService.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/dto/UpdateProfileRequest.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/SmartImportController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/model/Category.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/service/QuestionParsingService.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/model/WrongQuestion.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/repository/ExamRecordRepository.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/model/Subject.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/ExamController.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/ImportController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/dto/LoginRequest.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/config/SecurityConfig.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/security/JwtAuthenticationEntryPoint.java
@@ -15,9 +18,11 @@
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/config/WebConfig.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/AuthController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/service/QuestionService.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/MaterialAnalysisController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/repository/SubjectRepository.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/repository/CategoryRepository.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/security/JwtAuthenticationFilter.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/CompositeQuestionController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/UserStatsController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/WrongQuestionController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/service/UserService.java
@@ -33,6 +38,7 @@
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/dto/RegisterRequest.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/model/ExamRecord.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/config/DataInitializer.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/util/CsvParser.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/util/PageUtil.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/repository/QuestionRepository.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/dto/CreateExamRequest.java

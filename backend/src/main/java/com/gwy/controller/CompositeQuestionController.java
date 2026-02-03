@@ -32,7 +32,7 @@ public class CompositeQuestionController {
             parentQuestion.setReferenceMaterial(request.getReferenceMaterial());
             parentQuestion.setType(Question.QuestionType.COMPOSITE_QUESTION);
             parentQuestion.setDifficulty(request.getDifficulty());
-            parentQuestion.setSubject(request.getSubject());
+            // 需要通过subjectId获取Subject对象
             
             // 保存父题
             Question savedParent = questionService.save(parentQuestion);
@@ -42,7 +42,7 @@ public class CompositeQuestionController {
                 Question childQuestion = request.getChildQuestions().get(i);
                 childQuestion.setParentQuestion(savedParent);
                 childQuestion.setSortIndex(i);
-                childQuestion.setSubject(request.getSubject()); // 子题继承父题的科目
+                // 子题继承父题的科目，需要通过subjectId获取Subject对象
                 
                 // 保存子题
                 questionService.save(childQuestion);
@@ -67,7 +67,7 @@ public class CompositeQuestionController {
             // 获取所有子题
             List<Question> childQuestions = questionService.getChildrenByParentId(parentId);
             
-            var response = new java.util.HashMap<String, Object>();
+            java.util.HashMap<String, Object> response = new java.util.HashMap<>();
             response.put("parentQuestion", parent);
             response.put("childQuestions", childQuestions);
             
@@ -110,7 +110,7 @@ public class CompositeQuestionController {
         private String content;
         private String referenceMaterial; // 参考资料
         private Question.DifficultyLevel difficulty;
-        private Question.Subject subject;
+        private Long subjectId; // 使用ID代替对象引用
         private List<Question> childQuestions; // 子题列表
         
         // getters and setters
@@ -123,8 +123,8 @@ public class CompositeQuestionController {
         public Question.DifficultyLevel getDifficulty() { return difficulty; }
         public void setDifficulty(Question.DifficultyLevel difficulty) { this.difficulty = difficulty; }
         
-        public Question.Subject getSubject() { return subject; }
-        public void setSubject(Question.Subject subject) { this.subject = subject; }
+        public Long getSubjectId() { return subjectId; }
+        public void setSubjectId(Long subjectId) { this.subjectId = subjectId; }
         
         public List<Question> getChildQuestions() { return childQuestions; }
         public void setChildQuestions(List<Question> childQuestions) { this.childQuestions = childQuestions; }

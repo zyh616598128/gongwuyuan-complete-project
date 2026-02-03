@@ -83,7 +83,7 @@ public class ImportController {
             }
 
             // 准备响应数据
-            var responseData = new java.util.HashMap<String, Object>();
+            java.util.HashMap<String, Object> responseData = new java.util.HashMap<>();
             responseData.put("totalProcessed", importedCount + errorCount);
             responseData.put("importedCount", importedCount);
             responseData.put("errorCount", errorCount);

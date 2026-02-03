@@ -13,6 +13,7 @@ import WrongQuestionsPage from './pages/WrongQuestionsPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminImportPage from './pages/AdminImportPage';
 import MaterialAnalysisPage from './pages/MaterialAnalysisPage';
+import SmartImportPage from './pages/SmartImportPage';
 import Layout from './components/Layout';
 
 const theme = createTheme({
@@ -99,6 +100,14 @@ function App() {
             element={
               isAuthenticated ? 
                 <Layout><MaterialAnalysisPage /></Layout> : 
+                <Navigate to="/login" />
+            } 
+          />
+          <Route 
+            path="/smart-import" 
+            element={
+              isAuthenticated ? 
+                <Layout><SmartImportPage /></Layout> : 
                 <Navigate to="/login" />
             } 
           />

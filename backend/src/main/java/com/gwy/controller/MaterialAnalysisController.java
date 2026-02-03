@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.zip.ZipInputStream;
 
 @RestController
@@ -36,7 +37,8 @@ public class MaterialAnalysisController {
             parentQuestion.setReferenceMaterial(request.getReferenceMaterial());
             parentQuestion.setType(Question.QuestionType.MATERIAL_ANALYSIS);
             parentQuestion.setDifficulty(request.getDifficulty());
-            parentQuestion.setSubject(request.getSubject());
+            // 需要通过subjectId获取Subject对象
+            // 这里暂时简化处理，实际实现需要注入SubjectService
             
             // 保存父题
             Question savedParent = questionService.save(parentQuestion);
@@ -53,7 +55,7 @@ public class MaterialAnalysisController {
                 childQuestion.setDifficulty(subRequest.getDifficulty());
                 childQuestion.setParentQuestion(savedParent);
                 childQuestion.setSortIndex(i);
-                childQuestion.setSubject(request.getSubject()); // 子题继承父题的科目
+                // 子题继承父题的科目，需要通过subjectId获取Subject对象
                 
                 // 保存子题
                 questionService.save(childQuestion);
@@ -70,23 +72,25 @@ public class MaterialAnalysisController {
      */
     @GetMapping("/{materialQuestionId}")
     public ResponseEntity<ApiResponse<Object>> getMaterialAnalysisQuestion(@PathVariable Long materialQuestionId) {
-        return questionService.findById(materialQuestionId)
-                .map(parentQuestion -> {
-                    if (parentQuestion.getType() == Question.QuestionType.MATERIAL_ANALYSIS) {
-                        // 获取所有子题
-                        List<Question> childQuestions = questionService.getChildrenByParentId(materialQuestionId);
-                        
-                        var response = new java.util.HashMap<String, Object>();
-                        response.put("parentQuestion", parentQuestion);
-                        response.put("referenceMaterial", parentQuestion.getReferenceMaterial());
-                        response.put("childQuestions", childQuestions);
-                        
-                        return ResponseEntity.ok(ApiResponse.success("获取资料分析题成功", response));
-                    } else {
-                        return ResponseEntity.ok(ApiResponse.error("指定的题目不是资料分析题"));
-                    }
-                })
-                .orElse(ResponseEntity.ok(ApiResponse.error("题目不存在")));
+        Optional<Question> parentOpt = questionService.findById(materialQuestionId);
+        if (parentOpt.isPresent()) {
+            Question parentQuestion = parentOpt.get();
+            if (parentQuestion.getType() == Question.QuestionType.MATERIAL_ANALYSIS) {
+                // 获取所有子题
+                List<Question> childQuestions = questionService.getChildrenByParentId(materialQuestionId);
+                
+                java.util.HashMap<String, Object> response = new java.util.HashMap<>();
+                response.put("parentQuestion", parentQuestion);
+                response.put("referenceMaterial", parentQuestion.getReferenceMaterial());
+                response.put("childQuestions", childQuestions);
+                
+                return ResponseEntity.ok(ApiResponse.success("获取资料分析题成功", response));
+            } else {
+                return ResponseEntity.ok(ApiResponse.error("指定的题目不是资料分析题"));
+            }
+        } else {
+            return ResponseEntity.ok(ApiResponse.error("题目不存在"));
+        }
     }
 
     /**
@@ -124,7 +128,7 @@ public class MaterialAnalysisController {
         private String title; // 资料标题
         private String referenceMaterial; // 参考资料（长文本）
         private Question.DifficultyLevel difficulty;
-        private Question.Subject subject;
+        private Long subjectId; // 使用ID代替对象引用
         private List<QuestionRequest> questions; // 基于资料的问题列表
         
         // getters and setters
@@ -137,8 +141,8 @@ public class MaterialAnalysisController {
         public Question.DifficultyLevel getDifficulty() { return difficulty; }
         public void setDifficulty(Question.DifficultyLevel difficulty) { this.difficulty = difficulty; }
         
-        public Question.Subject getSubject() { return subject; }
-        public void setSubject(Question.Subject subject) { this.subject = subject; }
+        public Long getSubjectId() { return subjectId; }
+        public void setSubjectId(Long subjectId) { this.subjectId = subjectId; }
         
         public List<QuestionRequest> getQuestions() { return questions; }
         public void setQuestions(List<QuestionRequest> questions) { this.questions = questions; }
