@@ -10,14 +10,12 @@ import {
   CircularProgress,
   Chip
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import axios from '../services/api';
 
 function ExamPage() {
   const [exams, setExams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchExams = async () => {

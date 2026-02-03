@@ -21,9 +21,20 @@ public class QuestionController {
     @GetMapping
     public ResponseEntity<ApiResponse<Object>> getQuestions(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) Long subjectId,
+            @RequestParam(required = false) String difficulty) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<Question> questions = questionService.getQuestionsBySubjectId(1L, pageable);
+        Page<Question> questions;
+        
+        if (subjectId != null) {
+            questions = questionService.getQuestionsBySubjectId(subjectId, pageable);
+        } else {
+            // 如果没有指定科目，可以默认获取某个科目或者全部
+            questions = questionService.getQuestionsBySubjectId(1L, pageable);
+        }
+        
+        // Note: 过滤难度级别需要在service层实现，这里简化处理
         return ResponseEntity.ok(ApiResponse.success("获取题目成功", questions));
     }
 

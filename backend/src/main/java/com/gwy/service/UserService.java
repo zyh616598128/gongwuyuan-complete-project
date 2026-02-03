@@ -127,4 +127,9 @@ public class UserService {
 
         return ((double) correctAnswers / totalQuestions) * 100;
     }
+    
+    public User update(User user) {
+        user.setUpdateTime(java.time.LocalDateTime.now());
+        return userRepository.save(user);
+    }
 }

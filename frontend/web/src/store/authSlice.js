@@ -91,6 +91,7 @@ const authSlice = createSlice({
     token: localStorage.getItem('token'),
     isLoading: false,
     error: null,
+    updateError: null,
     isAuthenticated: !!localStorage.getItem('token'),
   },
   reducers: {

@@ -9,6 +9,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import com.gwy.dto.UpdateProfileRequest;
+import org.springframework.validation.annotation.Validated;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +51,45 @@ public class UserStatsController {
             return ResponseEntity.ok(ApiResponse.success("获取用户资料成功", profileData));
         } catch (Exception e) {
             return ResponseEntity.ok(ApiResponse.error("获取用户资料失败: " + e.getMessage()));
+        }
+    }
+    
+    @PutMapping("/profile")
+    public ResponseEntity<ApiResponse<Object>> updateUserProfile(@Valid @RequestBody UpdateProfileRequest request) {
+        try {
+            // Get the authenticated user
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String username = authentication.getName();
+            
+            User user = userService.findByUsername(username).orElse(null);
+            
+            if (user == null) {
+                return ResponseEntity.ok(ApiResponse.error("用户不存在"));
+            }
+
+            // 更新可修改的信息
+            if (request.getNickname() != null) {
+                user.setNickname(request.getNickname());
+            }
+            
+            if (request.getPhone() != null) {
+                user.setPhone(request.getPhone());
+            }
+
+            // 保存更新后的用户信息
+            User updatedUser = userService.update(user);
+
+            Map<String, Object> profileData = new HashMap<>();
+            profileData.put("id", updatedUser.getId());
+            profileData.put("username", updatedUser.getUsername());
+            profileData.put("nickname", updatedUser.getNickname());
+            profileData.put("email", updatedUser.getEmail());
+            profileData.put("phone", updatedUser.getPhone());
+            profileData.put("createTime", updatedUser.getCreateTime());
+            
+            return ResponseEntity.ok(ApiResponse.success("用户资料更新成功", profileData));
+        } catch (Exception e) {
+            return ResponseEntity.ok(ApiResponse.error("更新用户资料失败: " + e.getMessage()));
         }
     }
 }
