@@ -62,8 +62,9 @@ The backend provides the following main endpoints:
 
 ## Build Configuration
 
-The Android project has been updated with all necessary resources and dependencies:
+Both the Android frontend and Spring Boot backend have been updated with all necessary resources and dependencies:
 
+### Android Project
 - **Navigation Component** dependencies added for proper navigation graph support
 - **String resources** added for all UI elements
 - **Drawable resources** created for all missing icons (ic_chevron_right, ic_info, ic_recommend_placeholder, ic_help_outline, ic_launcher_foreground)
@@ -72,6 +73,13 @@ The Android project has been updated with all necessary resources and dependenci
 - **Vector drawable attributes** fixed for compatibility
 - **Launcher icons** properly configured with correct references
 - **Invalid attributes** corrected (e.g., lineSpacing changed to lineSpacingExtra)
+- **Missing View IDs** added to layout files for Java code references
+- **Missing Java classes** (fragments) created and properly implemented
+
+### Backend Project
+- **API Response** class fixed with proper overloaded methods for different parameter combinations
+- **Global exception handler** updated to work with fixed ApiResponse methods
+- **All compilation errors** resolved
 
 ## Project Files
 

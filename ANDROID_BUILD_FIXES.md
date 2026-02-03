@@ -64,6 +64,30 @@
 
 **Solution**: Changed to `android:lineSpacingExtra="4dp"` in fragment_about.xml
 
+### 10. Missing View IDs in Layout Files
+**Problem**: HomeFragment.java referenced view IDs that didn't exist in fragment_home.xml:
+- `card_practice`, `card_random`, `card_exam`, `card_wrong_book`
+- Text view IDs for user data display
+
+**Solution**: Added proper IDs to the corresponding views in fragment_home.xml
+
+### 11. Missing Navigation Menu Items
+**Problem**: HomeActivity.java referenced navigation menu items that didn't exist:
+- `nav_wrong_questions`, `nav_practice`, `nav_exam`
+
+**Solution**: Updated bottom_nav_menu.xml to include all required menu items with proper IDs
+
+### 12. Missing Java Classes
+**Problem**: References to missing Java classes:
+- `PracticeFragment`, `ExamFragment`, `WrongQuestionsFragment`
+
+**Solution**: Created the missing fragment classes with proper package structure
+
+### 13. Backend Compilation Error
+**Problem**: ApiResponse.error() method was being called with two parameters but only accepted one
+
+**Solution**: Added overloaded error() method in ApiResponse class that accepts both message and data parameters
+
 ### 10. Missing Fragment Classes
 **Problem**: Java compilation errors for missing fragment classes:
 - `PracticeFragment`
