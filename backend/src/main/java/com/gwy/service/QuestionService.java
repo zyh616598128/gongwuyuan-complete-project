@@ -78,4 +78,8 @@ public class QuestionService {
         }
         return questionRepository.saveAll(questions);
     }
+
+    public List<Question> getChildrenByParentId(Long parentId) {
+        return questionRepository.findByParentQuestionIdAndIsActiveTrue(parentId);
+    }
 }

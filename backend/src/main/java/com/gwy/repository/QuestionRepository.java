@@ -20,4 +20,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
     Page<Question> findByCategory_IdAndIsActiveTrue(Long categoryId, Pageable pageable);
     
     List<Question> findByIdIn(List<Long> ids);
+    
+    List<Question> findByParentQuestionIdAndIsActiveTrue(Long parentQuestionId);
 }

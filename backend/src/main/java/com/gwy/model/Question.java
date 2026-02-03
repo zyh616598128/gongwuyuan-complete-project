@@ -16,8 +16,11 @@ public class Question {
     @Column(length = 5000, nullable = false)
     private String content; // 题目内容
     
-    @Column(length = 1000)
+    @Column(length = 10000) // 增加长度以支持资料分析题的长文本
     private String analysis; // 解析
+    
+    @Column(length = 5000) // 用于存储参考资料
+    private String referenceMaterial; // 参考资料（用于资料分析题）
     
     @Enumerated(EnumType.STRING)
     private QuestionType type; // 题目类型
@@ -43,6 +46,15 @@ public class Question {
     @JoinColumn(name = "category_id")
     private Category category; // 题目分类
     
+    @ManyToOne
+    @JoinColumn(name = "parent_question_id") // 用于组合题，子题指向父题
+    private Question parentQuestion; // 父题目（用于组合题的子题）
+    
+    @OneToMany(mappedBy = "parentQuestion", cascade = CascadeType.ALL)
+    private List<Question> subQuestions; // 子题目列表（用于组合题）
+    
+    private Integer sortIndex; // 排序索引，用于组合题中子题的排序
+    
     private LocalDateTime createTime;
     
     private LocalDateTime updateTime;
@@ -54,7 +66,9 @@ public class Question {
         MULTIPLE_CHOICE, // 多选题
         TRUE_FALSE, // 判断题
         FILL_BLANK, // 填空题
-        ESSAY // 论述题
+        ESSAY, // 论述题
+        MATERIAL_ANALYSIS, // 资料分析题
+        COMPOSITE_QUESTION // 组合题
     }
     
     public enum DifficultyLevel {

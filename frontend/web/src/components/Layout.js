@@ -45,6 +45,7 @@ function Layout({ children }) {
   const menuItems = [
     { text: '首页', icon: <HomeIcon />, path: '/dashboard' },
     { text: '题库练习', icon: <QuizIcon />, path: '/practice' },
+    { text: '资料分析', icon: <AssessmentIcon />, path: '/material-analysis' },
     { text: '模拟考试', icon: <AssessmentIcon />, path: '/exam' },
     { text: '错题本', icon: <ChecklistIcon />, path: '/wrong-questions' },
     { text: '个人中心', icon: <AccountCircleIcon />, path: '/profile' },

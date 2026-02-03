@@ -12,6 +12,7 @@ import ExamPage from './pages/ExamPage';
 import WrongQuestionsPage from './pages/WrongQuestionsPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminImportPage from './pages/AdminImportPage';
+import MaterialAnalysisPage from './pages/MaterialAnalysisPage';
 import Layout from './components/Layout';
 
 const theme = createTheme({
@@ -90,6 +91,14 @@ function App() {
             element={
               isAuthenticated ? 
                 <Layout><AdminImportPage /></Layout> : 
+                <Navigate to="/login" />
+            } 
+          />
+          <Route 
+            path="/material-analysis" 
+            element={
+              isAuthenticated ? 
+                <Layout><MaterialAnalysisPage /></Layout> : 
                 <Navigate to="/login" />
             } 
           />

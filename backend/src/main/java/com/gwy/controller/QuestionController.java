@@ -64,4 +64,11 @@ public class QuestionController {
         Page<Question> questions = questionService.getQuestionsByCategoryId(categoryId, pageable);
         return ResponseEntity.ok(ApiResponse.success("获取题目成功", questions));
     }
+
+    @GetMapping("/parent/{parentId}/children")
+    public ResponseEntity<ApiResponse<Object>> getChildrenByParentId(
+            @PathVariable Long parentId) {
+        List<Question> childQuestions = questionService.getChildrenByParentId(parentId);
+        return ResponseEntity.ok(ApiResponse.success("获取子题成功", childQuestions));
+    }
 }
