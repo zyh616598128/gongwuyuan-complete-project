@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadUserDataFromApi() {
-        ApiService apiService = ApiClient.getInstance().getApiService();
+        ApiService apiService = ApiClient.getApiService();
         Call<UserProfileResponse> call = apiService.getUserProfile();
         
         call.enqueue(new Callback<UserProfileResponse>() {

@@ -82,7 +82,7 @@ public class PracticeActivity extends AppCompatActivity {
     }
 
     private void loadQuestionsFromApi() {
-        ApiService apiService = ApiClient.getInstance().getApiService();
+        ApiService apiService = ApiClient.getApiService();
         Call<QuestionListResponse> call = apiService.getQuestions(0, 30); // Get first 30 questions
         
         call.enqueue(new Callback<QuestionListResponse>() {

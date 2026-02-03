@@ -54,7 +54,7 @@ public class QuestionBankFragment extends Fragment implements QuestionAdapter.On
     }
 
     private void loadQuestionDataFromApi() {
-        ApiService apiService = ApiClient.getInstance().getApiService();
+        ApiService apiService = ApiClient.getApiService();
         Call<QuestionListResponse> call = apiService.getQuestions(0, 50); // Get first 50 questions
         
         call.enqueue(new Callback<QuestionListResponse>() {
