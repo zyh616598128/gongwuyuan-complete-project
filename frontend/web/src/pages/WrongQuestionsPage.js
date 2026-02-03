@@ -15,7 +15,7 @@ import {
   TableRow,
   Paper
 } from '@mui/material';
-import axios from '../services/api';
+import api from '../services/api';
 
 function WrongQuestionsPage() {
   const [wrongQuestions, setWrongQuestions] = useState([]);
@@ -25,7 +25,7 @@ function WrongQuestionsPage() {
   useEffect(() => {
     const fetchWrongQuestions = async () => {
       try {
-        const response = await axios.get('/wrong-questions');
+        const response = await api.get('/api/wrong-questions');
         setWrongQuestions(response.data.data || []);
         setLoading(false);
       } catch (err) {

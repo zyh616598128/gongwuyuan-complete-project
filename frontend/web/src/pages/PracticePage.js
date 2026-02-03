@@ -11,7 +11,7 @@ import {
   CircularProgress
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import axios from '../services/api';
+import api from '../services/api';
 
 function PracticePage() {
   const [subjects, setSubjects] = useState([]);
@@ -22,7 +22,7 @@ function PracticePage() {
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
-        const response = await axios.get('/subjects');
+        const response = await api.get('/api/subjects');
         setSubjects(response.data.data || []);
         setLoading(false);
       } catch (err) {

@@ -10,7 +10,7 @@ import {
   CircularProgress,
   Chip
 } from '@mui/material';
-import axios from '../services/api';
+import api from '../services/api';
 
 function ExamPage() {
   const [exams, setExams] = useState([]);
@@ -21,7 +21,7 @@ function ExamPage() {
     const fetchExams = async () => {
       try {
         // 获取考试历史记录
-        const response = await axios.get('/exams/history?page=0&size=10');
+        const response = await api.get('/api/exams/history?page=0&size=10');
         setExams(response.data.data.content || []);
         setLoading(false);
       } catch (err) {
