@@ -11,6 +11,7 @@ import com.gwy.exam.ui.practice.PracticeFragment;
 import com.gwy.exam.ui.exam.ExamFragment;
 import com.gwy.exam.ui.question.WrongQuestionsFragment;
 import com.gwy.exam.ProfileFragment;
+import com.gwy.exam.utils.SharedPreferenceUtil;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -18,6 +19,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Initialize SharedPreferenceUtil
+        SharedPreferenceUtil.initializeInstance(this);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);

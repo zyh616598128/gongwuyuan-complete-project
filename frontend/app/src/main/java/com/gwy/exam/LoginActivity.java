@@ -12,6 +12,7 @@ import com.gwy.exam.api.ApiClient;
 import com.gwy.exam.api.ApiService;
 import com.gwy.exam.api.LoginRequest;
 import com.gwy.exam.api.LoginResponse;
+import com.gwy.exam.utils.SharedPreferenceUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Initialize SharedPreferenceUtil
+        SharedPreferenceUtil.initializeInstance(this);
 
         initViews();
         setListeners();
@@ -75,6 +79,11 @@ public class LoginActivity extends AppCompatActivity {
                     LoginResponse loginResponse = response.body();
                     if (loginResponse.isSuccess()) {
                         // 登录成功，保存token并跳转到主页
+                        String token = loginResponse.getData(); // Get the JWT token from response
+                        if (token != null && !token.isEmpty()) {
+                            SharedPreferenceUtil.getInstance().saveToken(token);
+                        }
+                        
                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(intent);

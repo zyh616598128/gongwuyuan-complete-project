@@ -12,6 +12,7 @@ import com.gwy.exam.api.ApiClient;
 import com.gwy.exam.api.ApiService;
 import com.gwy.exam.api.RegisterRequest;
 import com.gwy.exam.api.RegisterResponse;
+import com.gwy.exam.utils.SharedPreferenceUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +28,9 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        // Initialize SharedPreferenceUtil
+        SharedPreferenceUtil.initializeInstance(this);
 
         initViews();
         setListeners();
