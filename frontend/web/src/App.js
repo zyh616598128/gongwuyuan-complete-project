@@ -7,6 +7,10 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
+import PracticePage from './pages/PracticePage';
+import ExamPage from './pages/ExamPage';
+import WrongQuestionsPage from './pages/WrongQuestionsPage';
+import ProfilePage from './pages/ProfilePage';
 import Layout from './components/Layout';
 
 const theme = createTheme({
@@ -33,10 +37,50 @@ function App() {
           <Route path="/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/dashboard" />} />
           <Route path="/register" element={!isAuthenticated ? <RegisterPage /> : <Navigate to="/dashboard" />} />
           <Route 
-            path="/*" 
+            path="/" 
             element={
               isAuthenticated ? 
                 <Layout><DashboardPage /></Layout> : 
+                <Navigate to="/login" />
+            } 
+          />
+          <Route 
+            path="/dashboard" 
+            element={
+              isAuthenticated ? 
+                <Layout><DashboardPage /></Layout> : 
+                <Navigate to="/login" />
+            } 
+          />
+          <Route 
+            path="/practice" 
+            element={
+              isAuthenticated ? 
+                <Layout><PracticePage /></Layout> : 
+                <Navigate to="/login" />
+            } 
+          />
+          <Route 
+            path="/exam" 
+            element={
+              isAuthenticated ? 
+                <Layout><ExamPage /></Layout> : 
+                <Navigate to="/login" />
+            } 
+          />
+          <Route 
+            path="/wrong-questions" 
+            element={
+              isAuthenticated ? 
+                <Layout><WrongQuestionsPage /></Layout> : 
+                <Navigate to="/login" />
+            } 
+          />
+          <Route 
+            path="/profile" 
+            element={
+              isAuthenticated ? 
+                <Layout><ProfilePage /></Layout> : 
                 <Navigate to="/login" />
             } 
           />
