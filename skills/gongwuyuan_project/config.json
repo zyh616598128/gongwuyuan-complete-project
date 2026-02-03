@@ -1,0 +1,19 @@
+{
+  "name": "gongwuyuan_project",
+  "version": "1.0.0",
+  "description": "Structured project management for the Gongwuyuan (公务员考试备考平台) project",
+  "author": "IntelliDev AI",
+  "category": "project_management",
+  "tags": ["gongwuyuan", "project", "management", "documentation", "api"],
+  "dependencies": [],
+  "activation": {
+    "contexts": ["gongwuyuan", "gongwuyuan-app", "公务员考试", "project"],
+    "autoLoad": true
+  },
+  "capabilities": [
+    "project_management",
+    "documentation",
+    "code_quality",
+    "workflow_guidance"
+  ]
+}
