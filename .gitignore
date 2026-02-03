@@ -68,7 +68,7 @@ typings/
 .env
 .env.test
 
-# parcel-bundler placeholders
+# Cache
 .cache
 
 # Next.js build output
