@@ -11,6 +11,7 @@ import PracticePage from './pages/PracticePage';
 import ExamPage from './pages/ExamPage';
 import WrongQuestionsPage from './pages/WrongQuestionsPage';
 import ProfilePage from './pages/ProfilePage';
+import AdminImportPage from './pages/AdminImportPage';
 import Layout from './components/Layout';
 
 const theme = createTheme({
@@ -81,6 +82,14 @@ function App() {
             element={
               isAuthenticated ? 
                 <Layout><ProfilePage /></Layout> : 
+                <Navigate to="/login" />
+            } 
+          />
+          <Route 
+            path="/admin/import" 
+            element={
+              isAuthenticated ? 
+                <Layout><AdminImportPage /></Layout> : 
                 <Navigate to="/login" />
             } 
           />

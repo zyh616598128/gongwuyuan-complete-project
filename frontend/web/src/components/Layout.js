@@ -48,6 +48,7 @@ function Layout({ children }) {
     { text: '模拟考试', icon: <AssessmentIcon />, path: '/exam' },
     { text: '错题本', icon: <ChecklistIcon />, path: '/wrong-questions' },
     { text: '个人中心', icon: <AccountCircleIcon />, path: '/profile' },
+    { text: '题库导入', icon: <QuizIcon />, path: '/admin/import' },
   ];
 
   const drawer = (

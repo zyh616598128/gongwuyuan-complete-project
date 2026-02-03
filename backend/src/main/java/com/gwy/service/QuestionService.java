@@ -67,4 +67,15 @@ public class QuestionService {
             questionRepository.save(question);
         }
     }
+
+    @CacheEvict(value = {"questions", "subjects"}, allEntries = true)
+    public List<Question> saveAll(List<Question> questions) {
+        for (Question question : questions) {
+            if (question.getId() == null) {
+                question.setCreateTime(LocalDateTime.now());
+            }
+            question.setUpdateTime(LocalDateTime.now());
+        }
+        return questionRepository.saveAll(questions);
+    }
 }
