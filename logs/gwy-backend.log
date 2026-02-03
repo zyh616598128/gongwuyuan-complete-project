@@ -679,3 +679,5 @@ java.lang.IllegalArgumentException: Cannot pass a null GrantedAuthority collecti
 2026-02-03 16:03:56.796 [http-nio-8081-exec-7] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
 2026-02-03 16:04:01.868 [http-nio-8081-exec-8] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
 2026-02-03 16:04:38.195 [http-nio-8081-exec-10] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
+2026-02-03 16:13:54.902 [http-nio-8081-exec-2] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
+2026-02-03 16:13:59.551 [http-nio-8081-exec-3] WARN  c.g.security.JwtAuthenticationFilter - JWT Token does not begin with Bearer String
