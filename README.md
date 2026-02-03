@@ -81,6 +81,11 @@ Both the Android frontend and Spring Boot backend have been updated with all nec
 - **Global exception handler** updated to work with fixed ApiResponse methods
 - **All compilation errors** resolved
 
+### Android Configuration
+- **API Client**: Configured to connect to local backend API at http://10.0.2.2:8081 (for Android emulator)
+- **Network Security**: Configured to allow cleartext traffic to local server
+- **For direct device connection**: Replace 10.0.2.2 with your local IP address
+
 ## Project Files
 
 The project contains:

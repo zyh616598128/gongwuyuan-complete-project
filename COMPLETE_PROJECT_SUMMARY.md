@@ -30,9 +30,11 @@ The Gongwuyuan (公务员) Civil Service Exam Preparation App project is complet
   - Exam simulation
   - User profile management
 - **UI/UX**: Complete visual design with proper layouts and resources
-- **API Integration**: Configured to connect to cloud backend API
+- **API Integration**: Configured to connect to local backend API at http://10.0.2.2:8081 (for Android emulator)
 - **Navigation**: Complete Navigation Component setup with all fragment destinations
 - **Resources**: All strings, drawables, and colors properly defined with all missing resources added
+- **Network Security**: Configured to allow cleartext traffic to local server
+- **Device Connection**: For direct device connection, replace 10.0.2.2 with your local IP address
 
 #### 3. Development Artifacts
 - Complete source code for both backend and frontend
