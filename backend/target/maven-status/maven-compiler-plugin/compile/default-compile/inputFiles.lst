@@ -6,12 +6,15 @@
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/model/Subject.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/dto/LoginRequest.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/config/SecurityConfig.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/security/JwtAuthenticationEntryPoint.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/exception/GlobalExceptionHandler.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/config/WebConfig.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/AuthController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/service/QuestionService.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/repository/SubjectRepository.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/repository/CategoryRepository.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/security/JwtAuthenticationFilter.java
+/home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/UserStatsController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/service/UserService.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/controller/SubjectController.java
 /home/zhuyinhang/.openclaw/workspace/gongwuyuan-app/backend/src/main/java/com/gwy/repository/ExamPaperRepository.java

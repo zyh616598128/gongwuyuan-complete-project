@@ -41,6 +41,10 @@ public interface ApiService {
     @GET("api/subjects")
     Call<SubjectListResponse> getSubjects();
 
+    // 获取用户资料
+    @GET("api/users/profile")
+    Call<UserProfileResponse> getUserProfile();
+
     // 登录 - 使用POST方法
     @POST("api/auth/login")
     Call<LoginResponse> login(@Body LoginRequest loginRequest);

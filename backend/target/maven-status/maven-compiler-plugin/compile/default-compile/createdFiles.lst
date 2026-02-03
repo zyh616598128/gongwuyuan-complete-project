@@ -1,11 +1,14 @@
 com/gwy/config/DataInitializer.class
 com/gwy/util/PageUtil.class
+com/gwy/security/JwtAuthenticationFilter.class
 com/gwy/GwyApplication.class
 com/gwy/controller/QuestionController.class
 com/gwy/model/ExamPaper.class
 com/gwy/repository/ExamRecordRepository.class
 com/gwy/repository/ExamPaperRepository.class
 com/gwy/repository/CategoryRepository.class
+com/gwy/security/JwtAuthenticationEntryPoint.class
+com/gwy/controller/UserStatsController.class
 com/gwy/model/WrongQuestion.class
 com/gwy/model/Question$QuestionType.class
 com/gwy/service/UserService.class

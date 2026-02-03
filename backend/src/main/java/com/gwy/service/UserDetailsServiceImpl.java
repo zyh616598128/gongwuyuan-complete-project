@@ -4,10 +4,13 @@ import com.gwy.model.User;
 import com.gwy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -28,6 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .username(user.getUsername())
                 .password(user.getPassword()) // This should be the encoded password
                 .disabled(!user.getIsActive())
+                .authorities(Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")))
                 .build();
     }
 }

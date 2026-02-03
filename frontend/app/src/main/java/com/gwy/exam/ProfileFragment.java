@@ -7,9 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.gwy.exam.api.ApiClient;
+import com.gwy.exam.api.ApiService;
+import com.gwy.exam.api.UserProfileResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
 
@@ -34,7 +41,7 @@ public class ProfileFragment extends Fragment {
         
         initViews(view);
         setupClickListeners();
-        loadUserData();
+        loadUserDataFromApi();
         
         return view;
     }
@@ -92,13 +99,57 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    private void loadUserData() {
-        // 模拟加载用户数据
-        tvUsername.setText("张同学");
-        tvMemberLevel.setText("高级会员");
-        tvStudyDays.setText("已学习 25 天");
-        tvTotalQuestions.setText("1,580");
-        tvAnsweredQuestions.setText("1,420");
-        tvAccuracyRate.setText("82%");
+    private void loadUserDataFromApi() {
+        ApiService apiService = ApiClient.getInstance().getApiService();
+        Call<UserProfileResponse> call = apiService.getUserProfile();
+        
+        call.enqueue(new Callback<UserProfileResponse>() {
+            @Override
+            public void onResponse(Call<UserProfileResponse> call, Response<UserProfileResponse> response) {
+                if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                    UserProfileResponse userProfileResponse = response.body();
+                    updateUIWithUserData(userProfileResponse.getData());
+                } else {
+                    Toast.makeText(getContext(), "获取用户资料失败", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserProfileResponse> call, Throwable t) {
+                Toast.makeText(getContext(), "网络请求失败: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void updateUIWithUserData(java.util.Map<String, Object> userData) {
+        if (userData != null) {
+            String username = (String) userData.get("username");
+            if (username != null) {
+                tvUsername.setText(username);
+            }
+            
+            // For member level, we'll use a default value or fetch from server if available
+            tvMemberLevel.setText("普通会员"); // Default, can be updated based on server response if available
+            
+            Number studyDays = (Number) userData.get("studyDays");
+            if (studyDays != null) {
+                tvStudyDays.setText("已学习 " + studyDays.intValue() + " 天");
+            }
+            
+            Number totalQuestions = (Number) userData.get("totalQuestions");
+            if (totalQuestions != null) {
+                tvTotalQuestions.setText(String.format("%,d", totalQuestions.intValue()));
+            }
+            
+            Number answeredQuestions = (Number) userData.get("answeredQuestions");
+            if (answeredQuestions != null) {
+                tvAnsweredQuestions.setText(String.format("%,d", answeredQuestions.intValue()));
+            }
+            
+            Double accuracyRate = (Double) userData.get("accuracyRate");
+            if (accuracyRate != null) {
+                tvAccuracyRate.setText(String.format("%.0f%%", accuracyRate));
+            }
+        }
     }
 }
