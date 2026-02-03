@@ -1,26 +1,197 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+<head>
     <meta charset="utf-8" />
-    <link rel="icon" href="data:," />
+    <link rel="icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Gongwuyuan - 专业公务员考试备考平台"
-    />
-    <title>公考王 - Gongwuyuan</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+    <meta name="description" content="Gongwuyuan (公务员考试备考平台) - 公务员考试备考系统" />
+    <title>Gongwuyuan - 公务员考试备考平台</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+            sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f5f5f5;
+        }
+        .app-container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .nav-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .nav-button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: left;
+        }
+        .feature-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .feature-list ul {
+            padding-left: 20px;
+        }
+        .feature-list li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <h1>公务员考试备考平台 (Gongwuyuan)</h1>
+            <p>智能备考系统 - 助您成功上岸</p>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="/login" class="nav-button">登录</a>
+            <a href="/register" class="nav-button">注册</a>
+            <a href="/dashboard" class="nav-button">学习中心</a>
+            <a href="/practice" class="nav-button">练习中心</a>
+            <a href="/exam" class="nav-button">模拟考试</a>
+            <a href="/admin" class="nav-button">管理员</a>
+        </div>
+        
+        <div class="content">
+            <h2>系统状态</h2>
+            <div class="status-box">
+                <strong>后端服务:</strong> <span id="backend-status">正在检查...</span><br>
+                <strong>API连接:</strong> <span id="api-status">正在检查...</span><br>
+                <strong>用户认证:</strong> <span id="auth-status">-</span>
+            </div>
+            
+            <div class="feature-list">
+                <h3>主要功能</h3>
+                <ul>
+                    <li><strong>智能题库管理</strong>: 支持多种题型，包括单选、多选、判断、材料分析题等</li>
+                    <li><strong>智能导入功能</strong>: 可从真实考试试卷(PDF)中智能提取题目</li>
+                    <li><strong>个性化练习</strong>: 根据用户薄弱环节推荐针对性练习</li>
+                    <li><strong>模拟考试</strong>: 仿真考试环境，真实考试体验</li>
+                    <li><strong>错题管理</strong>: 自动收集错题，智能复习提醒</li>
+                    <li><strong>学习统计</strong>: 详细的学习进度和成绩分析</li>
+                    <li><strong>管理员功能</strong>: 题目管理、用户管理、系统配置等</li>
+                </ul>
+                
+                <h3>智能导入功能说明</h3>
+                <ul>
+                    <li>支持从真实的考试试卷(PDF)中智能提取题目</li>
+                    <li>自动识别题目、选项和答案</li>
+                    <li>支持多种考试格式和排版样式</li>
+                    <li>提供预览功能，确认解析结果后再导入</li>
+                    <li>支持批量导入，提高效率</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 检查后端服务状态
+        async function checkBackendStatus() {
+            try {
+                // 首先检查本地后端 (port 8081)
+                let backendUrl = 'http://localhost:8081/api/health';
+                
+                // 尝试连接本地后端
+                try {
+                    const response = await fetch(backendUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        document.getElementById('backend-status').textContent = '本地后端正常运行 (端口 8081)';
+                        document.getElementById('backend-status').style.color = 'green';
+                        document.getElementById('api-status').textContent = '连接成功';
+                        document.getElementById('api-status').style.color = 'green';
+                        return;
+                    }
+                } catch (localError) {
+                    // 如果本地连接失败，尝试云服务器
+                    try {
+                        const cloudResponse = await fetch('http://81.70.234.241:8080/api/health', {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            }
+                        });
+                        
+                        if (cloudResponse.ok) {
+                            document.getElementById('backend-status').textContent = '云端后端正常运行 (81.70.234.241:8080)';
+                            document.getElementById('backend-status').style.color = 'green';
+                            document.getElementById('api-status').textContent = '连接成功';
+                            document.getElementById('api-status').style.color = 'green';
+                            return;
+                        }
+                    } catch (cloudError) {
+                        // 两个都失败
+                    }
+                }
+                
+                // 如果都失败了
+                document.getElementById('backend-status').textContent = '后端服务不可达';
+                document.getElementById('backend-status').style.color = 'red';
+                document.getElementById('api-status').textContent = '连接失败';
+                document.getElementById('api-status').style.color = 'red';
+                
+            } catch (error) {
+                document.getElementById('backend-status').textContent = '后端服务不可达';
+                document.getElementById('backend-status').style.color = 'red';
+                document.getElementById('api-status').textContent = '连接失败';
+                document.getElementById('api-status').style.color = 'red';
+            }
+        }
+        
+        // 页面加载完成后检查后端状态
+        window.onload = function() {
+            checkBackendStatus();
+            
+            // 每30秒更新一次状态
+            setInterval(checkBackendStatus, 30000);
+        };
+    </script>
+</body>
 </html>
