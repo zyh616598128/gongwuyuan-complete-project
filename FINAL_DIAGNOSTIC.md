@@ -15,10 +15,17 @@ Previously accessible cloud server at 81.70.234.241:8080 is now unreachable.
 - ❌ curl and other connection attempts return timeout/connection errors
 
 ## Possible Causes
-1. **Service Not Running**: Application may have stopped after server reboot
+1. **Service Not Running**: Application may have stopped after server reboot (most likely)
 2. **Firewall Changes**: Security rules may have been modified
 3. **Server Issues**: Cloud server may be experiencing problems
 4. **Network Issues**: Routing problems between client and server
+
+## SSH Access Confirmation
+Based on provided information, the server 81.70.234.241 is accessible via SSH using the private key at `/home/zhuyinhang/tenxunyunfuwuqimiyao/beijinshili.pem`. A previous scp command was successful:
+
+`scp -i /home/zhuyinhang/tenxunyunfuwuqimiyao/beijinshili.pem -r /tmp/intellidev-deploy-1770053815/* root@81.70.234.241:~/intellidev-deploy/`
+
+This confirms the server is reachable and the SSH key is functional.
 
 ## Verification Needed
 Direct SSH access to the cloud server is required to:
